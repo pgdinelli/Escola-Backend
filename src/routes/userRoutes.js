@@ -3,11 +3,15 @@ import userController from '../controllers/UserController';
 import loginRequired from '../middlewares/loginRequired';
 
 const router = new Router();
+
+// Rotas de listar todos os usuários ou um usuário só não devem existir na aplicação final
+
+// router.get('/', loginRequired, userController.index);
+// router.get('/:id', userController.show);
+
 router.post('/', userController.store);
-router.get('/', loginRequired, userController.index);
-router.get('/:id', userController.show);
-router.put('/:id', userController.update);
-router.delete('/:id', userController.delete);
+router.put('/:id', loginRequired, userController.update);
+router.delete('/', loginRequired, userController.delete);
 
 export default router;
 
