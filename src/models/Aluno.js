@@ -26,6 +26,9 @@ export default class Aluno extends Model {
             email: {
                 type: Sequelize.STRING,
                 defaultValue: '',
+                unique: {
+                    msg: 'E-mail precisa ser valor único'
+                },
                 validate: {
                     isEmail: {
                         msg: 'E-mail inválido'
@@ -34,7 +37,6 @@ export default class Aluno extends Model {
             },
             idade: {
                 type: Sequelize.INTEGER,
-                defaultValue: '',
                 validate: {
                     isInt: {
                         msg: 'Idade precisa ser um número inteiro'
@@ -43,7 +45,6 @@ export default class Aluno extends Model {
             },
             peso: {
                 type: Sequelize.FLOAT,
-                defaultValue: '',
                 validate: {
                     isFloat: {
                         msg: 'Peso precisa ser um número válido'
@@ -52,7 +53,6 @@ export default class Aluno extends Model {
             },
             altura: {
                 type: Sequelize.FLOAT,
-                defaultValue: '',
                 validate: {
                     isFloat: {
                         msg: 'Altura precisa ser um número válido'
